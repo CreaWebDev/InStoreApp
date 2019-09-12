@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"             
+             xmlns:skia="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms"
+             xmlns:video="clr-namespace:FormsVideoLibrary"
+             xmlns:cv="clr-namespace:CarouselView.FormsPlugin.Abstractions;assembly=CarouselView.FormsPlugin.Abstractions"
+             x:Class="InStoreApp.Pages.LoadingPage"             
+             BackgroundColor="{StaticResource backgroundColor}">
+    
+    <ContentPage.Content>
+        <Grid Margin="50">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="4*"/>
+                <RowDefinition Height="2*"/>
+            </Grid.RowDefinitions>
+
+            <Image Source="beautycos"
+                   x:Name="topLogo"
+                   Grid.Row="0"
+                   VerticalOptions="Center"
+                   Margin="50,0"/>
+            
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+            </Grid>
+            <!-- The video on the pc screen -->
+            <video:VideoPlayer x:Name="videoP" 
+                               AreTransportControlsEnabled="False"
+                               Grid.Row="1">
+                <video:VideoPlayer.Source>
+                    <video:ResourceVideoSource>
+                        <video:ResourceVideoSource.Path>
+                            <OnPlatform x:TypeArguments="x:String">
+                                <On Platform="Android" Value="webScrollVideo.mp4"/>
+                            </OnPlatform>
+                        </video:ResourceVideoSource.Path>
+                    </video:ResourceVideoSource>
+                </video:VideoPlayer.Source>
+            </video:VideoPlayer>
+            
+            <!-- The carouselview  -->
+            <cv:CarouselViewControl x:Name="Scv" 
+                                    Grid.Row="1"
+                                    IsSwipeEnabled="False"
+                                    ShowIndicators="False"
+                                    IndicatorsTintColor="Transparent">
+                <cv:CarouselViewControl.ItemTemplate>
+                    <DataTemplate>
+                        <Label Text="{Binding .}"
+                               Style="{StaticResource largeGrayText}"
+                               VerticalTextAlignment="Center"/>
+                    </DataTemplate>
+                </cv:CarouselViewControl.ItemTemplate>
+            </cv:CarouselViewControl>
+            
+            <Button Text="Søg hér" x:Name="searchBtn"
+                    Style="{StaticResource blackBtn}"
+                    Grid.Row="2" 
+                    VerticalOptions="Center"
+                    Clicked="SearchBtn_Clicked">
+            </Button>
+             
+            <Image Style="{StaticResource iLoveBLogo}"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

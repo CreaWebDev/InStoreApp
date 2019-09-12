@@ -1,0 +1,76 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>pdbonly</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="SkiaAccessorize\**" />
+    <EmbeddedResource Remove="SkiaAccessorize\**" />
+    <None Remove="SkiaAccessorize\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Modals\CarouselModal.xaml.cs" />
+    <Compile Remove="Modals\LoadingAnimation.xaml.cs" />
+    <Compile Remove="Pages\Icon.cs" />
+    <Compile Remove="Pages\VideoPage.xaml.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Remove="Modals\CarouselModal.xaml" />
+    <EmbeddedResource Remove="Modals\LoadingAnimation.xaml" />
+    <EmbeddedResource Remove="Pages\VideoPage.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="8868-three-points.json" />
+    <None Remove="Assets\logo.svg" />
+    <None Remove="Pages\scrollVideo.gif" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="bin\Debug\netstandard2.0\InStoreApp.deps.json" />
+    <Content Include="bin\Debug\netstandard2.0\Mono.Android.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\logo.svg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="bin\Debug\netstandard2.0\InStoreApp.dll" />
+    <None Include="bin\Debug\netstandard2.0\InStoreApp.pdb" />
+    <None Include="bin\Debug\netstandard2.0\Mono.Android.dll" />
+    <None Include="bin\Debug\netstandard2.0\Mono.Android.pdb" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Acr.UserDialogs" Version="7.0.4" />
+    <PackageReference Include="CarouselView.FormsPlugin" Version="5.2.0" />
+    <PackageReference Include="SkiaSharp" Version="1.68.0" />
+    <PackageReference Include="SkiaSharp.Views.Forms" Version="1.68.0" />
+    <PackageReference Include="System.Drawing.Common" Version="4.5.1" />
+    <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.11.982" />
+    <PackageReference Include="Xamarin.FFImageLoading.Svg.Forms" Version="2.4.11.982" />
+    <PackageReference Include="Xamarin.FFImageLoading.Transformations" Version="2.4.11.982" />
+    <PackageReference Include="Xamarin.Forms" Version="4.2.0.709249" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Mono.Android, Version=0.0.0.0, Culture=neutral, PublicKeyToken=84e04ff9cfb79065">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\ReferenceAssemblies\Microsoft\Framework\MonoAndroid\v9.0\Mono.Android.dll</HintPath>
+      <SpecificVersion></SpecificVersion>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Resources\" />
+    <Folder Include="System\Windows\" />
+  </ItemGroup>
+</Project>

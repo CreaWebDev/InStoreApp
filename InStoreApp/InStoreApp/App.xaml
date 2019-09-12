@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="InStoreApp.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <Color x:Key="backgroundColor">#FCEFF6</Color>
+            <Color x:Key="grayText">Gray</Color>
+            <Color x:Key="beautyRed">#DD353C</Color>
+            <Color x:Key="beautygreen">#3c9e5c</Color>
+            <Color x:Key="bottonColor">Black</Color>
+            <Color x:Key="bottonTextColor">White</Color>
+            
+
+            <Style x:Key="largeGrayText" TargetType="Label">
+                <Setter Property="FontSize" Value="90"/>
+                <Setter Property="TextColor" Value="{StaticResource grayText}"/>
+                <Setter Property="HorizontalTextAlignment" Value="Center"/>
+                <Setter Property="LineHeight" Value="1.0"/>
+            </Style>
+            <Style x:Key="largeGreenText" TargetType="Label">
+                <Setter Property="FontSize" Value="90"/>
+                <Setter Property="TextColor" Value="{StaticResource beautygreen}"/>
+                <Setter Property="HorizontalTextAlignment" Value="Center"/>
+                <Setter Property="LineHeight" Value="1.0"/>
+            </Style>
+            <Style x:Key="centerHorVer" TargetType="Label">
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+            </Style>
+
+            <!-- Bottom logo -->
+            <Style x:Key="iLoveBLogo" TargetType="Image">
+                <Setter Property="Source" Value="iLoveB"/>
+                <Setter Property="HeightRequest" Value="40"/>
+                <Setter Property="Grid.Row" Value="2"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="VerticalOptions" Value="End"/>
+            </Style>
+            
+            <!-- Search button -->
+            <Style x:Key="blackBtn" TargetType="Button">
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="VerticalOptions" Value="Start"/>
+                <Setter Property="BackgroundColor" Value="{StaticResource bottonColor}"/>
+                <Setter Property="TextColor" Value="{StaticResource bottonTextColor}"/>
+                <Setter Property="Padding" Value="100,10"/>
+                <Setter Property="FontSize" Value="Large"/>
+                <Setter Property="CornerRadius" Value="15"/>
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

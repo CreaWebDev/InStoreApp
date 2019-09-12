@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="InStoreApp.Modals.SearchModal"
+             BackgroundColor="{StaticResource backgroundColor}">
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Row="0">
+            <WebView x:Name="WebShop"
+                     WidthRequest="500"
+                     HeightRequest="1200"
+                     Source= "https://www.beautycos.dk/livsstil"
+                     IsVisible="False"
+                     Navigated="WebShop_Navigated"/>
+
+            <StackLayout x:Name="AnimationHearts" 
+                         Orientation="Horizontal"
+                         HorizontalOptions="Center"
+                         IsVisible="True">
+                <Image Source="heart" x:Name="heartLL"
+                       HeightRequest="35"
+                       Margin="10"/>
+                <Image Source="heart" x:Name="heartL"
+                       HeightRequest="35"
+                       Margin="10"/>
+                <Image Source="heart" x:Name="heartR"
+                       HeightRequest="35"
+                       Margin="10"/>
+                <Image Source="heart" x:Name="heartRR"
+                       HeightRequest="35"
+                       Margin="10"/>
+            </StackLayout>
+        </Grid>
+        <Button x:Name="backBtn" Text="Tilbage"
+                Grid.Row="1"
+                VerticalOptions="Center"
+                Style="{StaticResource blackBtn}" 
+                Clicked="BackBtn_Clicked"/>
+    </Grid>
+</ContentPage>
