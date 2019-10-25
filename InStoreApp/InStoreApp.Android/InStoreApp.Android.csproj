@@ -173,9 +173,6 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\logo.svg" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\InStoreApp\InStoreApp.csproj">
       <Project>{CB75E760-A686-4D7D-A504-25D4385BA466}</Project>
       <Name>InStoreApp</Name>

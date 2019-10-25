@@ -20,7 +20,7 @@
             <WebView x:Name="WebShop"
                      WidthRequest="500"
                      HeightRequest="1200"
-                     Source= "https://www.beautycos.dk/livsstil"
+                     Source="https://www.beautycos.dk"
                      IsVisible="False"
                      Navigated="WebShop_Navigated"/>
 
@@ -30,16 +30,16 @@
                          IsVisible="True">
                 <Image Source="heart" x:Name="heartLL"
                        HeightRequest="35"
-                       Margin="10"/>
+                       Margin="8"/>
                 <Image Source="heart" x:Name="heartL"
                        HeightRequest="35"
-                       Margin="10"/>
+                       Margin="8"/>
                 <Image Source="heart" x:Name="heartR"
                        HeightRequest="35"
-                       Margin="10"/>
+                       Margin="8"/>
                 <Image Source="heart" x:Name="heartRR"
                        HeightRequest="35"
-                       Margin="10"/>
+                       Margin="8"/>
             </StackLayout>
         </Grid>
         <Button x:Name="backBtn" Text="Tilbage"

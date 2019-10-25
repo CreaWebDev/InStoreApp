@@ -32,15 +32,20 @@
                 <Setter Property="VerticalOptions" Value="Center"/>
             </Style>
 
-            <!-- Bottom logo -->
+            <!-- iLoveB logo -->
             <Style x:Key="iLoveBLogo" TargetType="Image">
                 <Setter Property="Source" Value="iLoveB"/>
                 <Setter Property="HeightRequest" Value="40"/>
-                <Setter Property="Grid.Row" Value="2"/>
                 <Setter Property="HorizontalOptions" Value="Center"/>
-                <Setter Property="VerticalOptions" Value="End"/>
             </Style>
-            
+
+            <!-- BEAUTYCOS logo -->
+            <Style x:Key="beautyLogo" TargetType="Image">
+                <Setter Property="Source" Value="beautycos"/>
+                <Setter Property="HeightRequest" Value="50"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+            </Style>
+
             <!-- Search button -->
             <Style x:Key="blackBtn" TargetType="Button">
                 <Setter Property="HorizontalOptions" Value="Center"/>

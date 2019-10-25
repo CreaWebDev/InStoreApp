@@ -10,12 +10,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Services\**" />
     <Compile Remove="SkiaAccessorize\**" />
+    <EmbeddedResource Remove="Services\**" />
     <EmbeddedResource Remove="SkiaAccessorize\**" />
+    <None Remove="Services\**" />
     <None Remove="SkiaAccessorize\**" />
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="BitmapExtensions.cs" />
+    <Compile Remove="MainPage.xaml.cs" />
     <Compile Remove="Modals\CarouselModal.xaml.cs" />
     <Compile Remove="Modals\LoadingAnimation.xaml.cs" />
     <Compile Remove="Pages\Icon.cs" />
@@ -23,6 +28,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Remove="MainPage.xaml" />
     <EmbeddedResource Remove="Modals\CarouselModal.xaml" />
     <EmbeddedResource Remove="Modals\LoadingAnimation.xaml" />
     <EmbeddedResource Remove="Pages\VideoPage.xaml" />
@@ -67,10 +73,5 @@
       <HintPath>..\..\..\..\..\..\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\ReferenceAssemblies\Microsoft\Framework\MonoAndroid\v9.0\Mono.Android.dll</HintPath>
       <SpecificVersion></SpecificVersion>
     </Reference>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Resources\" />
-    <Folder Include="System\Windows\" />
   </ItemGroup>
 </Project>

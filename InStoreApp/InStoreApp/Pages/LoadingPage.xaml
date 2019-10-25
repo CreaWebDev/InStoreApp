@@ -4,7 +4,6 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"             
-             xmlns:skia="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms"
              xmlns:video="clr-namespace:FormsVideoLibrary"
              xmlns:cv="clr-namespace:CarouselView.FormsPlugin.Abstractions;assembly=CarouselView.FormsPlugin.Abstractions"
              x:Class="InStoreApp.Pages.LoadingPage"             
@@ -13,26 +12,30 @@
     <ContentPage.Content>
         <Grid Margin="50">
             <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="4*"/>
                 <RowDefinition Height="2*"/>
+                <RowDefinition Height="4*"/>
+                <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
 
-            <Image Source="beautycos"
-                   x:Name="topLogo"
-                   Grid.Row="0"
-                   VerticalOptions="Center"
-                   Margin="50,0"/>
+            <Image Style="{StaticResource beautyLogo}"
+                   Grid.Row="0" Grid.ColumnSpan="3"
+                   VerticalOptions="Center"/>
             
-            <Grid Grid.Row="1">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-            </Grid>
+            <Grid Grid.Row="1"
+                  Grid.ColumnSpan="3">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="3*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
             <!-- The video on the pc screen -->
             <video:VideoPlayer x:Name="videoP" 
-                               AreTransportControlsEnabled="False"
-                               Grid.Row="1">
+                               Grid.Row="0"
+                               AreTransportControlsEnabled="False">
                 <video:VideoPlayer.Source>
                     <video:ResourceVideoSource>
                         <video:ResourceVideoSource.Path>
@@ -46,7 +49,7 @@
             
             <!-- The carouselview  -->
             <cv:CarouselViewControl x:Name="Scv" 
-                                    Grid.Row="1"
+                                    Grid.Row="0"
                                     IsSwipeEnabled="False"
                                     ShowIndicators="False"
                                     IndicatorsTintColor="Transparent">
@@ -54,19 +57,23 @@
                     <DataTemplate>
                         <Label Text="{Binding .}"
                                Style="{StaticResource largeGrayText}"
-                               VerticalTextAlignment="Center"/>
+                               Grid.Row="1"
+                               VerticalTextAlignment="Center" />
                     </DataTemplate>
                 </cv:CarouselViewControl.ItemTemplate>
             </cv:CarouselViewControl>
-            
+
             <Button Text="Søg hér" x:Name="searchBtn"
+                    Grid.Row="1"
+                    VerticalOptions="End"
+                    Margin="0,50,0,0"
                     Style="{StaticResource blackBtn}"
-                    Grid.Row="2" 
-                    VerticalOptions="Center"
-                    Clicked="SearchBtn_Clicked">
-            </Button>
-             
-            <Image Style="{StaticResource iLoveBLogo}"/>
+                    Clicked="SearchBtn_Clicked" />
+            </Grid>
+            <Image Style="{StaticResource iLoveBLogo}" 
+                   Grid.Row="2" Grid.Column="1"
+                   HorizontalOptions="Center"
+                   VerticalOptions="End"/>
         </Grid>
     </ContentPage.Content>
 </ContentPage>

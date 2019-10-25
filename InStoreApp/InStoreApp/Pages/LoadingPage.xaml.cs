@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Diagnostics;
-using System.Threading;
+using System.Collections.Generic;
 using Xamarin.Forms;
 
 using InStoreApp.Modals;
-using System.Threading.Tasks;
-using System.Collections.Generic;
-using Android.Widget;
 
 namespace InStoreApp.Pages
 {
@@ -34,8 +31,8 @@ namespace InStoreApp.Pages
 
                     List<String> CarouselContent = new List<String>()
                     {
-                        "Fandt du hvad du søgte?",
-                        "Vi har mere end 30.000 varer på vores webshop"
+                        "Fandt du hvad\r\ndu søgte?",
+                        "Vi har mere\r\nend 30.000\r\nvarer på vores\r\nwebshop"
                     };
 
                     Scv.ItemsSource = CarouselContent;

@@ -9,46 +9,46 @@ namespace InStoreApp.Modals
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SearchModal : ContentPage
     {
+#if DEBUG
+        private int count = 0;
+#endif
+        private bool renderLoading;
+
         public SearchModal()
         {
             InitializeComponent();
-        }
 
-        protected override void OnAppearing()
-        {
-            base.OnAppearing();
+            renderLoading = true;
             AnimationLoop();
         }
 
-
-        protected void AnimationLoop()
+        // the animated hearts while webview is loading
+        void AnimationLoop()
         {
-            Func<double, double> CustomEase = t => 8.5 * t  + 6.5 * t * t;
-
-            var parentAnimation = new Animation();
-            var firstChildAnimation = new Animation(v => heartRR.TranslationY = v, 0, -2, CustomEase);
-            var secondChildAnimation = new Animation(v => heartR.TranslationY = v, 0, -1.8, CustomEase);
-            var thirdChildAnimation = new Animation(v => heartL.TranslationY = v, 0, -1.7, CustomEase);
-            var lastChildAnimation = new Animation(v => heartLL.TranslationY = v, 0, -1.6, CustomEase);
-
-            parentAnimation.Add(0, 0.9, firstChildAnimation);
-            parentAnimation.Add(0.2, 1, secondChildAnimation);
-            parentAnimation.Add(0.4, 1, thirdChildAnimation);
-            parentAnimation.Add(0.6, 1, lastChildAnimation);
-
-            parentAnimation.Commit(this, "ChildAnimations", 16, 1000, null, (v, c) => OnAppearing());
+#if DEBUG
+            count++;
+#endif
+        new Animation {
+            { 0, 0.4, new Animation (v => heartRR.TranslationY = v, 0, -20, Easing.SinOut) },
+            { 0.4, 0.85, new Animation(v => heartRR.TranslationY = v, -20, 0, Easing.SinOut) },
+            { 0.1, 0.5, new Animation(v => heartR.TranslationY = v, 0, -19, Easing.SinOut) },
+            { 0.5, 0.9, new Animation(v => heartR.TranslationY = v, -19, 0, Easing.SinOut) },
+            { 0.2, 0.6, new Animation(v => heartL.TranslationY = v, 0, -18, Easing.SinOut) },
+            { 0.6, 0.95, new Animation(v => heartL.TranslationY = v, -18, 0, Easing.SinOut) },
+            { 0.3, 0.7, new Animation(v => heartLL.TranslationY = v, 0, -17, Easing.SinOut) },
+            { 0.7, 1, new Animation(v => heartLL.TranslationY = v, -17, 0, Easing.SinOut) }
+            }.Commit(this, "ChildAnimations", 16, 1500, null, (v, c) => { }, () => renderLoading );
         }
 
-        private async void WebShop_Navigated(object sender, WebNavigatedEventArgs e)
+        // make webshop visible and hearts non-visible after loading with navigation event
+        private void WebShop_Navigated(object sender, WebNavigatedEventArgs e)
         {
-            //Moment.IsVisible = false;
             WebShop.IsVisible = true;
-
-            await Task.Delay(3000);
+            renderLoading = false;
             AnimationHearts.IsVisible = false;
         }
 
-
+        // pop the modal when clicking back-button
         private async void BackBtn_Clicked(object sender, System.EventArgs e)
         {
             await Navigation.PopModalAsync();
